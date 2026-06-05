@@ -2,14 +2,14 @@
 
 **项目启动日期：** 2026-06-04
 **预计完成日期：** 2026-06-18
-**当前阶段：** Day 1 完成
+**当前阶段：** Day 2 完成
 
 ## 进度概览
 
 | 天数 | 日期 | 任务 | 状态 |
 |------|------|------|------|
 | Day 1 | 06-04 | Go 后端骨架搭建 | ✅ 已完成 |
-| Day 2 | 06-05 | uni-app 前端骨架 + 首页 | ⬜ 待开始 |
+| Day 2 | 06-05 | uni-app 前端骨架 + 首页 | ✅ 已完成 |
 | Day 3 | 06-06 | JSON 格式化工具 | ⬜ 待开始 |
 | Day 4 | 06-07 | Base64 + 时间戳 | ⬜ 待开始 |
 | Day 5 | 06-08 | 二维码生成 | ⬜ 待开始 |
@@ -56,4 +56,59 @@ backend/
 ├── middleware/logger.go
 ├── handlers/health_handler.go
 └── data/baibaoxiang.db (运行时生成)
+```
+
+### 2026-06-05 — Day 2：uni-app 前端骨架 + 首页
+
+**完成内容：**
+- ✅ 使用 `npx degit dcloudio/uni-preset-vue#vite-ts` 初始化 uni-app Vue3 项目
+- ✅ 精简 package.json：只保留微信小程序和 H5 相关依赖
+- ✅ 配置 `pages.json`：11 个页面路由（首页 + 10 个工具页）
+- ✅ 配置 `manifest.json`：AppID、微信小程序设置、H5 开发代理
+- ✅ 编写首页 `pages/index/index.vue`：
+  - 自定义导航栏（蓝色渐变背景 + 状态栏适配）
+  - 10 个工具卡片网格列表，每个卡片有图标、名称、描述
+  - 点击卡片跳转到对应工具页面
+- ✅ 编写 `components/ToolCard.vue`：图标+名称+描述+箭头，点击跳转
+- ✅ 编写 `components/NavBar.vue`：自定义导航栏组件，支持返回按钮
+- ✅ 编写 `components/ResultBox.vue`：结果展示组件，带复制功能
+- ✅ 编写 `api/index.ts`：封装 uni.request，统一错误处理，预定义所有工具 API
+- ✅ 编写 `utils/index.ts`：防抖、节流、复制、日期格式化等工具函数
+- ✅ 创建 10 个工具页面的占位文件（待后续开发）
+- ✅ 更新 `App.vue`：全局样式（配色、字体、卡片、按钮）
+- ✅ H5 构建成功
+- ✅ 微信小程序构建成功
+
+**文件清单：**
+```
+frontend/
+├── package.json / package-lock.json
+├── vite.config.ts
+├── tsconfig.json
+├── index.html
+├── .gitignore
+└── src/
+    ├── App.vue (全局样式)
+    ├── main.ts (入口)
+    ├── pages.json (路由配置)
+    ├── manifest.json (应用配置)
+    ├── api/index.ts (API 封装)
+    ├── utils/index.ts (工具函数)
+    ├── components/
+    │   ├── NavBar.vue (导航栏)
+    │   ├── ToolCard.vue (工具卡片)
+    │   └── ResultBox.vue (结果展示)
+    ├── pages/
+    │   ├── index/index.vue (首页)
+    │   ├── json-formatter/index.vue (占位)
+    │   ├── base64/index.vue (占位)
+    │   ├── timestamp/index.vue (占位)
+    │   ├── qrcode/index.vue (占位)
+    │   ├── color/index.vue (占位)
+    │   ├── text/index.vue (占位)
+    │   ├── unit/index.vue (占位)
+    │   ├── uuid/index.vue (占位)
+    │   ├── regex/index.vue (占位)
+    │   └── markdown/index.vue (占位)
+    └── static/logo.png
 ```
